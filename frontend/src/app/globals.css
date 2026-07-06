@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #1a1b20;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+}
+
+@layer components {
+  .gold-gradient-text {
+    @apply bg-gradient-to-r from-gold-300 via-gold-400 to-gold-600 bg-clip-text text-transparent;
+  }
+  .gold-shimmer {
+    background: linear-gradient(110deg, #eab228 20%, #fdf3c9 40%, #eab228 60%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 3.5s linear infinite;
+  }
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-b from-gold-400 to-gold-600 px-6 py-3 font-semibold text-ink-950 shadow-lg shadow-gold-500/25 transition hover:from-gold-300 hover:to-gold-500 hover:shadow-gold-400/40 active:scale-[0.98];
+  }
+  .btn-dark {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-gold-500/40 bg-ink-900 px-6 py-3 font-semibold text-gold-300 transition hover:bg-ink-800 hover:border-gold-400 active:scale-[0.98];
+  }
+  .card {
+    @apply rounded-2xl border border-ink-100 bg-white shadow-sm;
+  }
+  .input {
+    @apply w-full rounded-lg border border-ink-200 bg-white px-4 py-2.5 text-sm outline-none transition focus:border-gold-500 focus:ring-2 focus:ring-gold-400/30;
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-ink-700;
+  }
+}
+
+/* Custom scrollbar for the customizer panels */
+.thin-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.thin-scroll::-webkit-scrollbar-thumb {
+  background: #c5c7cd;
+  border-radius: 3px;
+}

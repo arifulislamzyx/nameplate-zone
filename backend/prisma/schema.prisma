@@ -1,0 +1,123 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+}
+
+model Category {
+  id          String    @id @default(cuid())
+  name        String
+  nameBn      String?
+  slug        String    @unique
+  description String?
+  image       String?
+  products    Product[]
+  createdAt   DateTime  @default(now())
+}
+
+model Product {
+  id            String      @id @default(cuid())
+  name          String
+  nameBn        String?
+  slug          String      @unique
+  description   String
+  descriptionBn String?
+  price         Float
+  discountPrice Float?
+  images        String[]
+  material      String      @default("Acrylic")
+  shape         String      @default("RECTANGLE")
+  sizes         Json        @default("[]")
+  features      String[]    @default([])
+  featured      Boolean     @default(false)
+  inStock       Boolean     @default(true)
+  categoryId    String
+  category      Category    @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  orderItems    OrderItem[]
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+}
+
+model Order {
+  id             String      @id @default(cuid())
+  orderNumber    String      @unique
+  customerName   String
+  phone          String
+  email          String?
+  address        String
+  city           String
+  note           String?
+  status         OrderStatus @default(PENDING)
+  subtotal       Float
+  deliveryCharge Float       @default(0)
+  total          Float
+  items          OrderItem[]
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+}
+
+model OrderItem {
+  id            String   @id @default(cuid())
+  orderId       String
+  order         Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId     String?
+  product       Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+  designId      String?
+  design        CustomDesign? @relation(fields: [designId], references: [id], onDelete: SetNull)
+  name          String
+  price         Float
+  quantity      Int      @default(1)
+  size          String?
+  customization Json?
+}
+
+model CustomDesign {
+  id           String      @id @default(cuid())
+  title        String      @default("Custom Nameplate")
+  config       Json
+  previewImage String?
+  customerName String?
+  phone        String?
+  status       DesignStatus @default(DRAFT)
+  orderItems   OrderItem[]
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String
+  email     String?
+  subject   String?
+  message   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  IN_PRODUCTION
+  SHIPPED
+  DELIVERED
+  CANCELLED
+}
+
+enum DesignStatus {
+  DRAFT
+  SUBMITTED
+  REVIEWED
+  ORDERED
+}

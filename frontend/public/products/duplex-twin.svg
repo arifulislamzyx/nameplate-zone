@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 560">
+
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f9e08a"/>
+      <stop offset="0.45" stop-color="#f0c755"/>
+      <stop offset="0.5" stop-color="#eab228"/>
+      <stop offset="1" stop-color="#96561a"/>
+    </linearGradient>
+    <linearGradient id="plate" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#16171c"/>
+      <stop offset="0.5" stop-color="#0a0b0e"/>
+      <stop offset="1" stop-color="#1c1d24"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/>
+      <stop offset="0.35" stop-color="#ffffff" stop-opacity="0.02"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+<rect x="6" y="6" width="748" height="548" rx="18" fill="url(#plate)" stroke="url(#gold)" stroke-width="2.5"/>
+<rect x="6" y="6" width="748" height="548" rx="18" fill="url(#sheen)"/>
+
+    
+  <g transform="translate(20,20) scale(0.85,0.85)" fill="url(#gold)">
+    <path d="M0 60 Q0 8 60 4 Q30 14 22 34 Q46 26 66 30 Q40 38 30 52 Q18 68 16 96 Q10 74 0 60Z"/>
+    <circle cx="52" cy="52" r="5"/>
+  </g>
+  <g transform="translate(740,20) scale(-0.85,0.85)" fill="url(#gold)">
+    <path d="M0 60 Q0 8 60 4 Q30 14 22 34 Q46 26 66 30 Q40 38 30 52 Q18 68 16 96 Q10 74 0 60Z"/>
+    <circle cx="52" cy="52" r="5"/>
+  </g>
+  <g transform="translate(20,540) scale(0.85,-0.85)" fill="url(#gold)">
+    <path d="M0 60 Q0 8 60 4 Q30 14 22 34 Q46 26 66 30 Q40 38 30 52 Q18 68 16 96 Q10 74 0 60Z"/>
+    <circle cx="52" cy="52" r="5"/>
+  </g>
+  <g transform="translate(740,540) scale(-0.85,-0.85)" fill="url(#gold)">
+    <path d="M0 60 Q0 8 60 4 Q30 14 22 34 Q46 26 66 30 Q40 38 30 52 Q18 68 16 96 Q10 74 0 60Z"/>
+    <circle cx="52" cy="52" r="5"/>
+  </g>
+    <text x="380" y="66" font-size="24" font-weight="500" fill="url(#gold)" text-anchor="middle" font-family="'Hind Siliguri','Noto Sans Bengali',sans-serif">বিসমিল্লাহির রাহমানির রাহীম</text>
+    
+  <g transform="translate(325,82) scale(0.8)" fill="url(#gold)">
+    <path d="M60 0 0 42h14v46h34V58h24v30h34V42h14L60 0z"/>
+    <rect x="20" y="52" width="16" height="12" rx="1" fill="#0a0b0e"/>
+    <rect x="84" y="52" width="16" height="12" rx="1" fill="#0a0b0e"/>
+  </g>
+    <text x="380" y="270" font-size="66" font-weight="700" fill="url(#gold)" text-anchor="middle" font-family="'Hind Siliguri','Noto Sans Bengali',sans-serif">স্বপ্ন নীড়</text>
+    <text x="380" y="330" font-size="28" font-weight="600" fill="url(#gold)" text-anchor="middle" font-family="'Hind Siliguri','Noto Sans Bengali',sans-serif">মোঃ কামাল হোসেন ও মোঃ জামাল হোসেন</text>
+    <text x="380" y="380" font-size="24" font-weight="500" fill="url(#gold)" text-anchor="middle" font-family="'Hind Siliguri','Noto Sans Bengali',sans-serif">হোল্ডিং নংঃ ৪৫, ওয়ার্ড নংঃ ০৩</text>
+    <text x="380" y="425" font-size="24" font-weight="500" fill="url(#gold)" text-anchor="middle" font-family="'Hind Siliguri','Noto Sans Bengali',sans-serif">কুমিল্লা সদর, কুমিল্লা</text>
+    <text x="380" y="490" font-size="20" font-weight="400" fill="url(#gold)" text-anchor="middle" font-family="'Hind Siliguri','Noto Sans Bengali',sans-serif">রাব্বি আদখিলনি মুদখালা সিদকিউ</text>
+  
+</svg>

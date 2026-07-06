@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f9e08a"/>
+      <stop offset="0.45" stop-color="#f0c755"/>
+      <stop offset="0.5" stop-color="#eab228"/>
+      <stop offset="1" stop-color="#96561a"/>
+    </linearGradient>
+    <linearGradient id="plate" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#16171c"/>
+      <stop offset="0.5" stop-color="#0a0b0e"/>
+      <stop offset="1" stop-color="#1c1d24"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/>
+      <stop offset="0.35" stop-color="#ffffff" stop-opacity="0.02"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+<rect x="6" y="6" width="788" height="588" rx="18" fill="url(#plate)" stroke="url(#gold)" stroke-width="2.5"/>
+<rect x="6" y="6" width="788" height="588" rx="18" fill="url(#sheen)"/>
+
+    
+  <g transform="translate(20,20) scale(1,1)" fill="url(#gold)">
+    <path d="M0 60 Q0 8 60 4 Q30 14 22 34 Q46 26 66 30 Q40 38 30 52 Q18 68 16 96 Q10 74 0 60Z"/>
+    <circle cx="52" cy="52" r="5"/>
+  </g>
+  <g transform="translate(780,20) scale(-1,1)" fill="url(#gold)">
+    <path d="M0 60 Q0 8 60 4 Q30 14 22 34 Q46 26 66 30 Q40 38 30 52 Q18 68 16 96 Q10 74 0 60Z"/>
+    <circle cx="52" cy="52" r="5"/>
+  </g>
+  <g transform="translate(20,580) scale(1,-1)" fill="url(#gold)">
+    <path d="M0 60 Q0 8 60 4 Q30 14 22 34 Q46 26 66 30 Q40 38 30 52 Q18 68 16 96 Q10 74 0 60Z"/>
+    <circle cx="52" cy="52" r="5"/>
+  </g>
+  <g transform="translate(780,580) scale(-1,-1)" fill="url(#gold)">
+    <path d="M0 60 Q0 8 60 4 Q30 14 22 34 Q46 26 66 30 Q40 38 30 52 Q18 68 16 96 Q10 74 0 60Z"/>
+    <circle cx="52" cy="52" r="5"/>
+  </g>
+    <text x="400" y="66" font-size="26" font-weight="400" fill="url(#gold)" text-anchor="middle" font-family="serif" >﷽</text>
+    
+  <g transform="translate(340,90) scale(1)" fill="url(#gold)">
+    <path d="M60 0 0 42h14v46h34V58h24v30h34V42h14L60 0z"/>
+    <rect x="20" y="52" width="16" height="12" rx="1" fill="#0a0b0e"/>
+    <rect x="84" y="52" width="16" height="12" rx="1" fill="#0a0b0e"/>
+  </g>
+    <text x="400" y="305" font-size="92" font-weight="700" fill="url(#gold)" text-anchor="middle" font-family="'Hind Siliguri','Noto Sans Bengali',sans-serif">প্রসূন ভিলা</text>
+    <text x="400" y="360" font-size="30" font-weight="500" fill="url(#gold)" text-anchor="middle" font-family="'Hind Siliguri','Noto Sans Bengali',sans-serif">স্বত্বাধিকারী</text>
+    <text x="400" y="412" font-size="38" font-weight="600" fill="url(#gold)" text-anchor="middle" font-family="'Hind Siliguri','Noto Sans Bengali',sans-serif">জনাবঃ প্রসূন কান্তি বিশ্বাস</text>
+    <text x="400" y="465" font-size="30" font-weight="500" fill="url(#gold)" text-anchor="middle" font-family="'Hind Siliguri','Noto Sans Bengali',sans-serif">বাদাঘাট ৫ নং ইউনিয়ন ৩ নং ওয়ার্ড</text>
+    <text x="400" y="510" font-size="30" font-weight="500" fill="url(#gold)" text-anchor="middle" font-family="'Hind Siliguri','Noto Sans Bengali',sans-serif">তাহিরপুর, সুনামগঞ্জ</text>
+    <text x="400" y="552" font-size="22" font-weight="400" fill="url(#gold)" text-anchor="middle" font-family="'Hind Siliguri','Noto Sans Bengali',sans-serif">নির্মিতঃ ০১ জানুয়ারী ২০২৪ ইং</text>
+  
+</svg>

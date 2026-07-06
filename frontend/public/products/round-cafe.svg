@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 700">
+
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f9e08a"/>
+      <stop offset="0.45" stop-color="#f0c755"/>
+      <stop offset="0.5" stop-color="#eab228"/>
+      <stop offset="1" stop-color="#96561a"/>
+    </linearGradient>
+    <linearGradient id="plate" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#16171c"/>
+      <stop offset="0.5" stop-color="#0a0b0e"/>
+      <stop offset="1" stop-color="#1c1d24"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/>
+      <stop offset="0.35" stop-color="#ffffff" stop-opacity="0.02"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+<circle cx="350" cy="350" r="342" fill="url(#plate)" stroke="url(#gold)" stroke-width="5"/>
+<circle cx="350" cy="350" r="328" fill="none" stroke="url(#gold)" stroke-width="1.5" opacity="0.7"/>
+<circle cx="350" cy="350" r="342" fill="url(#sheen)"/>
+
+    <text x="350" y="230" font-size="40" font-weight="500" fill="url(#gold)" text-anchor="middle" font-family="Georgia,serif" >★ EST. 2020 ★</text>
+    <text x="350" y="350" font-size="92" font-weight="400" fill="url(#gold)" text-anchor="middle" font-family="'Great Vibes',cursive" >Café Aroma</text>
+    <text x="350" y="430" font-size="34" font-weight="600" fill="url(#gold)" text-anchor="middle" font-family="'Hind Siliguri','Noto Sans Bengali',sans-serif">ক্যাফে অ্যারোমা</text>
+    <line x1="230" y1="470" x2="470" y2="470" stroke="url(#gold)" stroke-width="2"/>
+    <text x="350" y="520" font-size="26" font-weight="500" fill="url(#gold)" text-anchor="middle" font-family="Georgia,serif" letter-spacing="3">COFFEE · FOOD · AMBIENCE</text>
+  
+</svg>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f9e08a"/>
+      <stop offset="0.45" stop-color="#f0c755"/>
+      <stop offset="0.5" stop-color="#eab228"/>
+      <stop offset="1" stop-color="#96561a"/>
+    </linearGradient>
+    <linearGradient id="plate" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#16171c"/>
+      <stop offset="0.5" stop-color="#0a0b0e"/>
+      <stop offset="1" stop-color="#1c1d24"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/>
+      <stop offset="0.35" stop-color="#ffffff" stop-opacity="0.02"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+<rect x="6" y="6" width="788" height="588" rx="18" fill="url(#plate)" stroke="url(#gold)" stroke-width="2.5"/>
+<rect x="6" y="6" width="788" height="588" rx="18" fill="url(#sheen)"/>
+
+    
+  <g transform="translate(20,20) scale(1,1)" fill="url(#gold)">
+    <path d="M0 60 Q0 8 60 4 Q30 14 22 34 Q46 26 66 30 Q40 38 30 52 Q18 68 16 96 Q10 74 0 60Z"/>
+    <circle cx="52" cy="52" r="5"/>
+  </g>
+  <g transform="translate(780,20) scale(-1,1)" fill="url(#gold)">
+    <path d="M0 60 Q0 8 60 4 Q30 14 22 34 Q46 26 66 30 Q40 38 30 52 Q18 68 16 96 Q10 74 0 60Z"/>
+    <circle cx="52" cy="52" r="5"/>
+  </g>
+  <g transform="translate(20,580) scale(1,-1)" fill="url(#gold)">
+    <path d="M0 60 Q0 8 60 4 Q30 14 22 34 Q46 26 66 30 Q40 38 30 52 Q18 68 16 96 Q10 74 0 60Z"/>
+    <circle cx="52" cy="52" r="5"/>
+  </g>
+  <g transform="translate(780,580) scale(-1,-1)" fill="url(#gold)">
+    <path d="M0 60 Q0 8 60 4 Q30 14 22 34 Q46 26 66 30 Q40 38 30 52 Q18 68 16 96 Q10 74 0 60Z"/>
+    <circle cx="52" cy="52" r="5"/>
+  </g>
+    <circle cx="205" cy="330" r="130" fill="none" stroke="url(#gold)" stroke-width="4"/>
+    <circle cx="205" cy="330" r="112" fill="none" stroke="url(#gold)" stroke-width="1.5"/>
+    <text x="205" y="320" font-size="60" font-weight="400" fill="url(#gold)" text-anchor="middle" font-family="serif" >﷽</text>
+    <text x="205" y="385" font-size="30" font-weight="400" fill="url(#gold)" text-anchor="middle" font-family="serif" >آية الكرسي</text>
+    <text x="490" y="120" font-size="44" font-weight="700" fill="url(#gold)" text-anchor="middle" font-family="'Hind Siliguri','Noto Sans Bengali',sans-serif">মোঃ ইসমাইল ভিলা</text>
+    <text x="490" y="175" font-size="30" font-weight="600" fill="url(#gold)" text-anchor="middle" font-family="'Hind Siliguri','Noto Sans Bengali',sans-serif">ইসমাইল সওদাগরের বাড়ি</text>
+    <text x="490" y="240" font-size="26" font-weight="500" fill="url(#gold)" text-anchor="middle" font-family="'Hind Siliguri','Noto Sans Bengali',sans-serif">হোল্ডিং নংঃ ৬২৭, ওয়ার্ড নংঃ ০৮</text>
+    <text x="490" y="285" font-size="26" font-weight="500" fill="url(#gold)" text-anchor="middle" font-family="'Hind Siliguri','Noto Sans Bengali',sans-serif">দক্ষিণ পোমরা কাদেরিয়া পাড়া</text>
+    <text x="490" y="330" font-size="26" font-weight="500" fill="url(#gold)" text-anchor="middle" font-family="'Hind Siliguri','Noto Sans Bengali',sans-serif">রাঙ্গুনিয়া, চট্টগ্রাম</text>
+    <text x="490" y="400" font-size="24" font-weight="600" fill="url(#gold)" text-anchor="middle" font-family="'Hind Siliguri','Noto Sans Bengali',sans-serif">ঘরে প্রবেশের দোয়াঃ</text>
+    <text x="490" y="445" font-size="20" font-weight="400" fill="url(#gold)" text-anchor="middle" font-family="'Hind Siliguri','Noto Sans Bengali',sans-serif">বিসমিল্লাহি ওয়ালাজনা, ওয়া বিসমিল্লাহি খারাজনা</text>
+    <text x="490" y="480" font-size="20" font-weight="400" fill="url(#gold)" text-anchor="middle" font-family="'Hind Siliguri','Noto Sans Bengali',sans-serif">ওয়া আলাল্লাহি রাব্বিনা তাওয়াক্কালনা</text>
+    <text x="400" y="555" font-size="22" font-weight="400" fill="url(#gold)" text-anchor="middle" font-family="'Hind Siliguri','Noto Sans Bengali',sans-serif">স্থাপিতঃ ১৩-০৪-২০২৬ ইং</text>
+  
+</svg>
