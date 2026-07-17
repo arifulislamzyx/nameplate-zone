@@ -12,6 +12,18 @@ const loginSchema = z.object({
   password: z.string().min(1),
 });
 
+// Friendly response for people opening the login URL in a browser (GET)
+router.get("/login", (_req, res) =>
+  res.status(405).json({
+    message:
+      "This endpoint accepts POST only. To log in, use the admin login page of the website (/admin/login).",
+    example: {
+      method: "POST",
+      body: { email: "admin@example.com", password: "••••••" },
+    },
+  })
+);
+
 router.post("/login", async (req, res, next) => {
   try {
     const { email, password } = loginSchema.parse(req.body);

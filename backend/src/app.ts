@@ -30,6 +30,14 @@ app.use(
 // Design previews arrive as data-URI PNGs, so allow large JSON bodies
 app.use(express.json({ limit: "15mb" }));
 
+app.get("/", (_req, res) =>
+  res.json({
+    service: "Nameplate Zone API",
+    status: "ok",
+    health: "/api/health",
+    endpoints: ["/api/products", "/api/categories", "/api/orders", "/api/designs", "/api/contact"],
+  })
+);
 app.get("/api/health", (_req, res) => res.json({ status: "ok", service: "Nameplate Zone API" }));
 
 app.use("/api/auth", authRoutes);
