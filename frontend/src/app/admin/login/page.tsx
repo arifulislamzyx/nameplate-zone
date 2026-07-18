@@ -100,10 +100,6 @@ export default function AdminLoginPage() {
             </button>
           </form>
 
-          <div className="mt-6 rounded-lg border border-gold-500/20 bg-gold-500/5 p-3 text-center text-xs text-ink-400">
-            Default credentials — <span className="text-gold-400">admin@nameplatezone.com</span> /{" "}
-            <span className="text-gold-400">admin123</span>
-          </div>
         </div>
       </div>
     </div>
