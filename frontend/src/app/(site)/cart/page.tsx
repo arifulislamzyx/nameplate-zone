@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { useCart, cartTotal } from "@/store/cart";
 import { formatPrice } from "@/lib/format";
+import { imgUrl } from "@/lib/image";
 
 export default function CartPage() {
   const { items, removeItem, setQuantity } = useCart();
@@ -87,7 +88,7 @@ export default function CartPage() {
                       {item.image ? (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
-                          src={item.image}
+                          src={imgUrl(item.image, 300)}
                           alt={item.name}
                           className="h-24 w-32 rounded-lg bg-ink-950 object-contain p-1"
                         />

@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import Link from "next/link";
 import toast from "react-hot-toast";
+import { trackAddToCart } from "@/lib/fbpixel";
 import {
   ArrowRight,
   Ban,
@@ -291,6 +292,7 @@ export default function Customizer() {
         customization: config,
         isCustom: true,
       });
+      trackAddToCart({ id: `design-${design.id}`, name: `Custom: ${derivedTitle}`, price, quantity: 1 });
       setSavedDesignId(design.id);
       toast.success("Design added to cart! কার্টে যোগ হয়েছে");
     } catch (err) {

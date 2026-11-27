@@ -95,7 +95,7 @@ router.get("/:slug", async (req, res, next) => {
     const related = await prisma.product.findMany({
       where: { categoryId: product.categoryId, id: { not: product.id }, inStock: true },
       take: 4,
-      include: { category: { select: { name: true, slug: true } } },
+      include: { category: { select: { name: true, nameBn: true, slug: true } } },
     });
 
     res.json({ product, related });

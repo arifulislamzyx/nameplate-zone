@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Star, Zap } from "lucide-react";
 import type { Product } from "@/lib/types";
 import { formatPrice } from "@/lib/format";
+import { imgUrl, imgSrcSet } from "@/lib/image";
 
 const isPhoto = (src: string) => !/\.svg(\?|$)/i.test(src);
 
@@ -20,9 +21,12 @@ export default function ProductCard({ product }: { product: Product }) {
       <div className={`relative aspect-[4/3] overflow-hidden ${photo ? "bg-ink-100" : "bg-ink-950 p-4"}`}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={img}
+          src={imgUrl(img, 600)}
+          srcSet={imgSrcSet(img, [400, 600, 900])}
+          sizes="(min-width: 1024px) 25vw, 50vw"
           alt={product.nameBn || product.name}
           loading="lazy"
+          decoding="async"
           className={`h-full w-full transition duration-500 group-hover:scale-105 ${photo ? "object-cover" : "object-contain"}`}
         />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/45 to-transparent" />

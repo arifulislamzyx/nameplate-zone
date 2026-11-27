@@ -1,12 +1,11 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { ChevronLeft, ChevronRight, PackageSearch, ServerOff } from "lucide-react";
-import { apiFetch } from "@/lib/api";
+import { publicFetch } from "@/lib/api";
 import type { Category, Pagination, Product } from "@/lib/types";
 import ProductCard from "@/components/ProductCard";
 import ProductFilters from "@/components/ProductFilters";
 
-export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Our Nameplates | Nameplate Zone",
@@ -57,8 +56,8 @@ export default async function ProductsPage({
     apiQs.set("limit", "12");
 
     const [cats, data] = await Promise.all([
-      apiFetch<Category[]>("/api/categories"),
-      apiFetch<ProductsResponse>(`/api/products?${apiQs.toString()}`),
+      publicFetch<Category[]>("/api/categories"),
+      publicFetch<ProductsResponse>(`/api/products?${apiQs.toString()}`),
     ]);
     categories = cats;
     products = data.products;

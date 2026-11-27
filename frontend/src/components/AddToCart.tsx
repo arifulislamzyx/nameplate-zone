@@ -11,13 +11,14 @@ import {
   Ban,
   Zap,
   Check,
-  Banknote,
   Truck,
   Expand,
 } from "lucide-react";
 import type { Product } from "@/lib/types";
 import { formatPrice } from "@/lib/format";
+import { imgUrl, imgSrcSet } from "@/lib/image";
 import { useCart } from "@/store/cart";
+import { trackAddToCart } from "@/lib/fbpixel";
 import OrderNowModal from "./OrderNowModal";
 
 const isPhoto = (src: string) => !/\.svg(\?|$)/i.test(src);
@@ -45,8 +46,12 @@ export function ProductGallery({ images, alt }: { images: string[]; alt: string 
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={current}
+          src={imgUrl(current, 1200)}
+          srcSet={imgSrcSet(current, [600, 900, 1200, 1600])}
+          sizes="(min-width: 1024px) 45vw, 100vw"
           alt={alt}
+          fetchPriority="high"
+          decoding="async"
           className="aspect-[4/3] w-full object-contain transition duration-500 group-hover:scale-[1.03]"
         />
         <span className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-full bg-black/60 px-3 py-1.5 font-bengali text-xs font-medium text-white backdrop-blur transition group-hover:bg-black/75">
@@ -68,7 +73,7 @@ export function ProductGallery({ images, alt }: { images: string[]; alt: string 
               }`}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={img} alt="" className="h-16 w-20 object-cover" />
+              <img src={imgUrl(img, 200)} alt="" loading="lazy" className="h-16 w-20 object-cover" />
             </button>
           ))}
         </div>
@@ -118,6 +123,7 @@ export default function AddToCart({ product }: { product: Product }) {
       },
       quantity,
     );
+    trackAddToCart({ id: product.id, name: product.name, price: unitPrice, quantity });
     setJustAdded(true);
     toast.success("কার্টে যোগ হয়েছে");
   };
@@ -238,14 +244,7 @@ export default function AddToCart({ product }: { product: Product }) {
       )}
 
       {/* Mini trust */}
-      <div className="grid grid-cols-2 gap-3">
-        <div className="flex items-center gap-2.5 rounded-xl bg-emerald-50 px-3 py-2.5 ring-1 ring-emerald-100">
-          <Banknote className="h-5 w-5 shrink-0 text-emerald-600" />
-          <p className="font-bengali text-xs leading-snug text-emerald-900">
-            <span className="block font-semibold">ক্যাশ অন ডেলিভারি</span>
-            হাতে পেয়ে টাকা দিন
-          </p>
-        </div>
+      <div>
         <div className="flex items-center gap-2.5 rounded-xl bg-cream-100 px-3 py-2.5 ring-1 ring-cream-200">
           <Truck className="h-5 w-5 shrink-0 text-gold-700" />
           <p className="font-bengali text-xs leading-snug text-ink-800">

@@ -38,6 +38,8 @@ export default function HeroShowcase() {
             key={p.src}
             src={p.src}
             alt={p.title}
+            fetchPriority={i === 0 ? "high" : "low"}
+            decoding="async"
             className={`plate-glow absolute inset-0 m-auto max-h-full w-full object-contain transition-all duration-700 ease-out ${
               i === active ? "scale-100 opacity-100" : "pointer-events-none scale-95 opacity-0"
             }`}
@@ -69,7 +71,7 @@ export default function HeroShowcase() {
             }`}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={p.src} alt="" className="max-h-full w-full object-contain" />
+            <img src={p.src.replace(".webp", "-thumb.webp")} alt="" loading="lazy" className="max-h-full w-full object-contain" />
           </button>
         ))}
       </div>

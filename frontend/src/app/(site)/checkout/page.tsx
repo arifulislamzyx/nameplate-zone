@@ -15,6 +15,7 @@ import { apiFetch } from "@/lib/api";
 import { formatPrice } from "@/lib/format";
 import type { Order } from "@/lib/types";
 import { useCart, cartTotal } from "@/store/cart";
+import { imgUrl } from "@/lib/image";
 
 const DELIVERY_OPTIONS = [
   {
@@ -403,7 +404,7 @@ export default function CheckoutPage() {
                       {item.image ? (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
-                          src={item.image}
+                          src={imgUrl(item.image, 160)}
                           alt={item.name}
                           className="h-12 w-16 shrink-0 rounded-md bg-ink-950 object-contain p-0.5"
                         />

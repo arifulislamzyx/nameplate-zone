@@ -11,10 +11,10 @@ export default function Logo({ dark = false, size = "md" }: { dark?: boolean; si
     <Link href="/" aria-label="Nameplate Zone — Home" className="group inline-flex shrink-0 items-center">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/brand/logo-horizontal.png"
+        src="/brand/logo-horizontal.webp"
         alt="Nameplate Zone — House & Business Nameplate"
-        width={932}
-        height={160}
+        width={699}
+        height={120}
         className={`w-auto transition ${
           dark
             ? "group-hover:brightness-110"

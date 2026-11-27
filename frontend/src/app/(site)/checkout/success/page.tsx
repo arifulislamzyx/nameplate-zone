@@ -1,11 +1,12 @@
 "use client";
 
-import { Suspense, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import toast from "react-hot-toast";
 import { Check, Copy, PhoneCall, Search, ShoppingBag } from "lucide-react";
 import { formatPrice } from "@/lib/format";
+import { trackPurchase } from "@/lib/fbpixel";
 
 function SuccessContent() {
   const searchParams = useSearchParams();
@@ -13,6 +14,10 @@ function SuccessContent() {
   const totalParam = Number(searchParams.get("total"));
   const total = Number.isFinite(totalParam) && totalParam > 0 ? totalParam : null;
   const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    if (orderNumber && total !== null) trackPurchase(orderNumber, total);
+  }, [orderNumber, total]);
 
   const copyOrderNumber = async () => {
     try {

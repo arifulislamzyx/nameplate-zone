@@ -16,23 +16,27 @@ import {
   Languages,
   Ruler,
 } from "lucide-react";
-import { apiFetch } from "@/lib/api";
+import { publicFetch } from "@/lib/api";
 import type { Category, Product, Pagination } from "@/lib/types";
 import ProductCard from "@/components/ProductCard";
 import HeroShowcase from "@/components/HeroShowcase";
+import { imgUrl } from "@/lib/image";
+
+// Serve a cached page, refreshed in the background at most once a minute.
+export const revalidate = 60;
 
 type ProductList = { products: Product[]; pagination: Pagination };
 
 async function getData() {
   try {
     const [latest, categories] = await Promise.all([
-      apiFetch<ProductList>("/api/products?sort=newest&limit=8"),
-      apiFetch<Category[]>("/api/categories"),
+      publicFetch<ProductList>("/api/products?sort=newest&limit=8"),
+      publicFetch<Category[]>("/api/categories"),
     ]);
     // A real photo for every category card
     const covers = await Promise.all(
       categories.map((c) =>
-        apiFetch<ProductList>(`/api/products?category=${c.slug}&sort=newest&limit=1`)
+        publicFetch<ProductList>(`/api/products?category=${c.slug}&sort=newest&limit=1`)
           .then((r) => r.products[0]?.images[0] ?? null)
           .catch(() => null),
       ),
@@ -166,7 +170,7 @@ export default async function HomePage() {
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={cover}
+                  src={imgUrl(cover, 700)}
                   alt={cat.nameBn || cat.name}
                   loading="lazy"
                   className={`absolute inset-0 h-full w-full transition duration-700 group-hover:scale-110 ${isPhoto(cover) ? "object-cover" : "object-contain p-6"}`}
@@ -322,7 +326,7 @@ export default async function HomePage() {
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={p.images[0]}
+                  src={imgUrl(p.images[0], 700)}
                   alt={p.nameBn || p.name}
                   loading="lazy"
                   className="aspect-[4/3] h-full w-full object-cover transition duration-700 group-hover:scale-105"

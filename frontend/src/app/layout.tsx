@@ -5,19 +5,19 @@ import "./globals.css";
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-body",
 });
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
+  weight: ["400", "600", "700"],
   variable: "--font-display",
 });
 
 const hindSiliguri = Hind_Siliguri({
   subsets: ["bengali", "latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-bengali",
 });
 
@@ -25,6 +25,7 @@ const greatVibes = Great_Vibes({
   subsets: ["latin"],
   weight: ["400"],
   variable: "--font-script",
+  preload: false, // only used inside the design studio
 });
 
 export const metadata: Metadata = {

@@ -14,12 +14,14 @@ import {
   FileText,
   ListChecks,
 } from "lucide-react";
-import { apiFetch } from "@/lib/api";
+import { publicFetch } from "@/lib/api";
 import type { Product } from "@/lib/types";
 import ProductCard from "@/components/ProductCard";
 import AddToCart, { ProductGallery } from "@/components/AddToCart";
 
-export const dynamic = "force-dynamic";
+// Serve a cached page, refreshed in the background at most once a minute.
+export const revalidate = 60;
+
 
 interface ProductResponse {
   product: Product;
@@ -35,9 +37,24 @@ const SHAPE_BN: Record<string, string> = {
 
 async function getProduct(slug: string): Promise<ProductResponse | null> {
   try {
-    return await apiFetch<ProductResponse>(`/api/products/${encodeURIComponent(slug)}`);
+    return await publicFetch<ProductResponse>(`/api/products/${encodeURIComponent(slug)}`);
   } catch {
     return null;
+  }
+}
+
+/**
+ * Pre-build the product pages at deploy time so the first visit is instant.
+ * Products added later are built on their first visit and then cached too.
+ */
+export async function generateStaticParams() {
+  try {
+    const { products } = await publicFetch<{ products: Pick<Product, "slug">[] }>(
+      "/api/products?limit=48",
+    );
+    return products.map((p) => ({ slug: p.slug }));
+  } catch {
+    return [];
   }
 }
 
