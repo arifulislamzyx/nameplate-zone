@@ -1,25 +1,26 @@
 import Link from "next/link";
 
-export default function Logo({ dark = false }: { dark?: boolean }) {
+/**
+ * Brand logo (transparent PNG with pale-gold lettering).
+ * On light backgrounds (default) a filter deepens the gold for contrast;
+ * pass `dark` when placing it on a dark surface.
+ * `size="lg"` is used in the footer; default fits the navbar.
+ */
+export default function Logo({ dark = false, size = "md" }: { dark?: boolean; size?: "md" | "lg" }) {
   return (
-    <Link href="/" className="group flex items-center gap-2.5">
-      <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-gold-300 via-gold-500 to-gold-700 shadow-md shadow-gold-500/30 transition group-hover:shadow-gold-400/50">
-        <svg viewBox="0 0 24 24" className="h-6 w-6 text-ink-950" fill="currentColor">
-          <path d="M12 3 2 10h3v9h6v-5h2v5h6v-9h3L12 3z" />
-        </svg>
-      </span>
-      <span className="leading-tight">
-        <span
-          className={`block font-display text-lg font-bold tracking-wide ${
-            dark ? "text-white" : "text-ink-900"
-          }`}
-        >
-          Nameplate <span className="gold-gradient-text">Zone</span>
-        </span>
-        <span className={`block text-[10px] uppercase tracking-[0.25em] ${dark ? "text-ink-300" : "text-ink-400"}`}>
-          Premium Custom Signs
-        </span>
-      </span>
+    <Link href="/" aria-label="Nameplate Zone — Home" className="group inline-flex shrink-0 items-center">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/brand/logo-horizontal.png"
+        alt="Nameplate Zone — House & Business Nameplate"
+        width={932}
+        height={160}
+        className={`w-auto transition ${
+          dark
+            ? "group-hover:brightness-110"
+            : "[filter:brightness(0.78)_saturate(1.6)_drop-shadow(0_1px_0.5px_rgba(80,50,10,0.25))] group-hover:[filter:brightness(0.72)_saturate(1.7)_drop-shadow(0_1px_0.5px_rgba(80,50,10,0.3))]"
+        } ${size === "lg" ? "h-12 sm:h-14" : "h-9 sm:h-11"}`}
+      />
     </Link>
   );
 }

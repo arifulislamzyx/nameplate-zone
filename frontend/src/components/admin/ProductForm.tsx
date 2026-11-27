@@ -47,6 +47,7 @@ export default function ProductForm({
     categoryId: product?.categoryId ?? "",
     featured: product?.featured ?? false,
     inStock: product?.inStock ?? true,
+    orderNow: product?.orderNow ?? true,
   });
   const [sizes, setSizes] = useState<SizeRow[]>(
     product?.sizes?.length
@@ -146,6 +147,13 @@ export default function ProductForm({
     if (discount != null && discount >= price)
       return toast.error("Discount price must be lower than the price");
     if (!form.categoryId) return toast.error("Select a category");
+    const badSize = sizes.find((s) => {
+      if (!s.label.trim()) return false;
+      const p = Number(s.price);
+      return !s.price.trim() || !Number.isFinite(p) || p <= 0;
+    });
+    if (badSize)
+      return toast.error(`"${badSize.label.trim()}" size-এর দাম দিন (০-এর বেশি)`);
 
     const body = {
       name: form.name.trim(),
@@ -163,6 +171,7 @@ export default function ProductForm({
       features: features.map((f) => f.trim()).filter(Boolean),
       featured: form.featured,
       inStock: form.inStock,
+      orderNow: form.orderNow,
       categoryId: form.categoryId,
     };
 
@@ -532,6 +541,15 @@ export default function ProductForm({
                 className="h-4 w-4 rounded border-ink-300 accent-gold-500"
               />
               In stock
+            </label>
+            <label className="flex cursor-pointer items-center gap-2 text-sm font-medium text-ink-700">
+              <input
+                type="checkbox"
+                checked={form.orderNow}
+                onChange={(e) => set("orderNow", e.target.checked)}
+                className="h-4 w-4 rounded border-ink-300 accent-gold-500"
+              />
+              Show &quot;Buy Now&quot; button
             </label>
           </section>
         </form>

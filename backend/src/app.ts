@@ -12,6 +12,7 @@ import designRoutes from "./routes/design.routes";
 import uploadRoutes from "./routes/upload.routes";
 import contactRoutes from "./routes/contact.routes";
 import statsRoutes from "./routes/stats.routes";
+import webhookRoutes from "./routes/webhook.routes";
 import { errorHandler } from "./middleware/errorHandler";
 
 const app = express();
@@ -48,6 +49,7 @@ app.use("/api/designs", designRoutes);
 app.use("/api/uploads", uploadRoutes);
 app.use("/api/contact", contactRoutes);
 app.use("/api/stats", statsRoutes);
+app.use("/api/webhooks", webhookRoutes);
 
 app.use(errorHandler);
 

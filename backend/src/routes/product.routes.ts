@@ -31,6 +31,7 @@ const productSchema = z.object({
   features: z.array(z.string()).default([]),
   featured: z.boolean().default(false),
   inStock: z.boolean().default(true),
+  orderNow: z.boolean().default(true),
   categoryId: z.string().min(1),
 });
 

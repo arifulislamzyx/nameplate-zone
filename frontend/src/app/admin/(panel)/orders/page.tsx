@@ -7,6 +7,7 @@ import { adminFetch } from "@/lib/api";
 import { formatPrice, formatDate, ORDER_STATUS_LABELS } from "@/lib/format";
 import type { Order, OrderStatus, Pagination, Product, CustomDesign } from "@/lib/types";
 import PaginationBar from "@/components/admin/PaginationBar";
+import SteadfastPanel from "@/components/admin/SteadfastPanel";
 import { Modal, ConfirmDialog } from "@/components/admin/Modal";
 import { Badge, EmptyState, TableSkeleton, useApiError } from "@/components/admin/ui";
 
@@ -87,6 +88,13 @@ export default function AdminOrdersPage() {
     } catch (err) {
       onError(err);
     }
+  }
+
+  function applyCourierUpdate(updated: Order) {
+    const { items: _items, ...fields } = updated;
+    void _items;
+    setSelected((prev) => (prev && prev.id === updated.id ? { ...prev, ...fields } : prev));
+    setOrders((prev) => prev?.map((o) => (o.id === updated.id ? { ...o, ...fields } : o)) ?? null);
   }
 
   async function handleDelete() {
@@ -183,6 +191,9 @@ export default function AdminOrdersPage() {
                       <Badge color={ORDER_STATUS_LABELS[o.status]?.color ?? "bg-gray-100 text-gray-700"}>
                         {ORDER_STATUS_LABELS[o.status]?.label ?? o.status}
                       </Badge>
+                      {o.trackingCode && (
+                        <p className="mt-1 font-mono text-[11px] text-ink-400">SF · {o.trackingCode}</p>
+                      )}
                     </td>
                     <td className="px-4 py-3" onClick={(e) => e.stopPropagation()}>
                       <div className="flex justify-end gap-1">
@@ -247,6 +258,8 @@ export default function AdminOrdersPage() {
               </select>
             </div>
 
+            <SteadfastPanel order={selected} onUpdated={applyCourierUpdate} />
+
             {/* Customer */}
             <div className="grid gap-3 sm:grid-cols-2">
               <div className="rounded-xl border border-ink-100 p-4">
@@ -261,7 +274,8 @@ export default function AdminOrdersPage() {
                 <p className="text-xs font-medium uppercase tracking-wide text-ink-400">Delivery</p>
                 <p className="mt-1 flex items-start gap-1.5 text-sm text-ink-700">
                   <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0" />
-                  {selected.address}, {selected.city}
+                  {selected.address}
+                  {selected.city ? `, ${selected.city}` : ""}
                 </p>
                 <p className="mt-1 text-sm text-ink-500">{formatDate(selected.createdAt)}</p>
               </div>

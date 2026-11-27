@@ -19,15 +19,15 @@ import Logo from "./Logo";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gold-500/20 bg-ink-950 text-ink-300">
+    <footer className="border-t border-cream-300 bg-gradient-to-b from-cream-100 to-cream-200/70 text-ink-700">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <Logo dark />
-          <p className="mt-4 text-sm leading-relaxed text-ink-400">
+          <Logo size="lg" />
+          <p className="mt-4 text-sm leading-relaxed text-ink-600">
             Premium custom acrylic nameplates with golden mirror lettering — designed by you,
             crafted by us with laser precision.
           </p>
-          <p className="mt-2 font-bengali text-sm text-ink-400">
+          <p className="mt-2 font-bengali text-sm text-ink-600">
             আপনার স্বপ্নের বাড়ির জন্য প্রিমিয়াম নেমপ্লেট — আপনি ডিজাইন করুন, আমরা তৈরি করি।
           </p>
           <div className="mt-4 flex gap-2">
@@ -37,7 +37,7 @@ export default function Footer() {
                 href="#"
                 aria-label={icon.name}
                 title={icon.name}
-                className="rounded-lg border border-ink-700 p-2 transition hover:border-gold-500 hover:text-gold-400"
+                className="rounded-lg border border-cream-300 bg-white p-2 text-ink-600 shadow-sm transition hover:border-gold-500 hover:bg-gold-500 hover:text-white"
               >
                 <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">
                   <path d={icon.path} />
@@ -48,52 +48,52 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="mb-4 font-display text-sm font-bold uppercase tracking-widest text-gold-400">
+          <h3 className="mb-4 font-display text-sm font-bold uppercase tracking-widest text-gold-700">
             Quick Links
           </h3>
           <ul className="space-y-2.5 text-sm">
-            <li><Link href="/products" className="transition hover:text-gold-300">All Products</Link></li>
-            <li><Link href="/customize" className="transition hover:text-gold-300">Design Studio</Link></li>
-            <li><Link href="/track-order" className="transition hover:text-gold-300">Track Your Order</Link></li>
-            <li><Link href="/contact" className="transition hover:text-gold-300">Contact Us</Link></li>
-            <li><Link href="/admin/login" className="transition hover:text-gold-300">Admin Login</Link></li>
+            <li><Link href="/products" className="transition hover:text-gold-700">All Products</Link></li>
+            <li><Link href="/customize" className="transition hover:text-gold-700">Design Studio</Link></li>
+            <li><Link href="/track-order" className="transition hover:text-gold-700">Track Your Order</Link></li>
+            <li><Link href="/contact" className="transition hover:text-gold-700">Contact Us</Link></li>
+            <li><Link href="/admin/login" className="transition hover:text-gold-700">Admin Login</Link></li>
           </ul>
         </div>
 
         <div>
-          <h3 className="mb-4 font-display text-sm font-bold uppercase tracking-widest text-gold-400">
+          <h3 className="mb-4 font-display text-sm font-bold uppercase tracking-widest text-gold-700">
             Categories
           </h3>
           <ul className="space-y-2.5 text-sm">
-            <li><Link href="/products?category=house-nameplates" className="transition hover:text-gold-300">House Nameplates</Link></li>
-            <li><Link href="/products?category=islamic-calligraphy" className="transition hover:text-gold-300">Islamic Calligraphy</Link></li>
-            <li><Link href="/products?category=round-logo-plates" className="transition hover:text-gold-300">Round Logo Plates</Link></li>
-            <li><Link href="/products?category=office-shop-signs" className="transition hover:text-gold-300">Office & Shop Signs</Link></li>
+            <li><Link href="/products?category=house-nameplates" className="transition hover:text-gold-700">House Nameplates</Link></li>
+            <li><Link href="/products?category=islamic-calligraphy" className="transition hover:text-gold-700">Islamic Calligraphy</Link></li>
+            <li><Link href="/products?category=round-logo-plates" className="transition hover:text-gold-700">Round Logo Plates</Link></li>
+            <li><Link href="/products?category=office-shop-signs" className="transition hover:text-gold-700">Office & Shop Signs</Link></li>
           </ul>
         </div>
 
         <div>
-          <h3 className="mb-4 font-display text-sm font-bold uppercase tracking-widest text-gold-400">
+          <h3 className="mb-4 font-display text-sm font-bold uppercase tracking-widest text-gold-700">
             Contact
           </h3>
           <ul className="space-y-3 text-sm">
             <li className="flex items-start gap-2.5">
-              <Phone className="mt-0.5 h-4 w-4 shrink-0 text-gold-500" />
+              <Phone className="mt-0.5 h-4 w-4 shrink-0 text-gold-600" />
               <span>+880 1XXX-XXXXXX</span>
             </li>
             <li className="flex items-start gap-2.5">
-              <Mail className="mt-0.5 h-4 w-4 shrink-0 text-gold-500" />
+              <Mail className="mt-0.5 h-4 w-4 shrink-0 text-gold-600" />
               <span>hello@nameplatezone.com</span>
             </li>
             <li className="flex items-start gap-2.5">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold-500" />
+              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold-600" />
               <span>Dhaka, Bangladesh — nationwide delivery</span>
             </li>
           </ul>
         </div>
       </div>
 
-      <div className="border-t border-ink-800 py-5 text-center text-xs text-ink-500">
+      <div className="border-t border-cream-300 bg-cream-200/60 py-5 text-center text-xs text-ink-500">
         © {new Date().getFullYear()} Nameplate Zone. All rights reserved. Crafted with laser precision ✦
       </div>
     </footer>

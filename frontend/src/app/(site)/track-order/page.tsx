@@ -230,6 +230,13 @@ function TrackOrderContent() {
                   Placed on {formatDate(order.createdAt)} ·{" "}
                   {order.customerName}
                 </p>
+                {order.trackingCode && (
+                  <p className="mt-3 inline-flex flex-wrap items-center gap-1.5 rounded-lg bg-ink-50 px-3 py-1.5 text-sm text-ink-600">
+                    <Truck className="h-4 w-4 text-gold-600" />
+                    Steadfast Courier · Tracking:{" "}
+                    <span className="font-mono font-semibold text-ink-900">{order.trackingCode}</span>
+                  </p>
+                )}
               </div>
               <div className="text-left sm:text-right">
                 <span

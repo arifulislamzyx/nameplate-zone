@@ -29,6 +29,7 @@ export interface Product {
   features: string[];
   featured: boolean;
   inStock: boolean;
+  orderNow?: boolean;
   categoryId: string;
   category?: { name: string; nameBn?: string | null; slug: string };
   createdAt: string;
@@ -74,6 +75,11 @@ export interface Order {
   deliveryCharge: number;
   total: number;
   items: OrderItem[];
+  courier?: string | null;
+  consignmentId?: string | null;
+  trackingCode?: string | null;
+  courierStatus?: string | null;
+  courierSentAt?: string | null;
   createdAt: string;
 }
 

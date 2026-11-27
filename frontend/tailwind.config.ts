@@ -22,6 +22,12 @@ const config: Config = {
           900: "#6b391a",
           950: "#3e1d0c",
         },
+        cream: {
+          50: "#fffdf8",
+          100: "#fdf7ea",
+          200: "#f8ecd3",
+          300: "#f1dcb0",
+        },
         ink: {
           50: "#f6f6f7",
           100: "#e2e3e6",
@@ -55,11 +61,16 @@ const config: Config = {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-8px)" },
         },
+        "glow-pulse": {
+          "0%, 100%": { opacity: "0.55" },
+          "50%": { opacity: "1" },
+        },
       },
       animation: {
         shimmer: "shimmer 3s linear infinite",
         "fade-up": "fade-up 0.6s ease-out both",
         float: "float 5s ease-in-out infinite",
+        "glow-pulse": "glow-pulse 4s ease-in-out infinite",
       },
     },
   },
