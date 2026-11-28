@@ -17,10 +17,22 @@ import { errorHandler } from "./middleware/errorHandler";
 
 const app = express();
 
-const allowedOrigins = (process.env.CLIENT_URL ?? "http://localhost:3000")
-  .split(",")
-  .map((o) => o.trim())
-  .filter(Boolean);
+// Production domains are always allowed; CLIENT_URL (comma-separated) adds more.
+const PRODUCTION_ORIGINS = [
+  "https://www.nameplatezone.com",
+  "https://nameplatezone.com",
+  "https://nameplate-zone-frontend.vercel.app",
+];
+
+const allowedOrigins = [
+  ...new Set([
+    ...PRODUCTION_ORIGINS,
+    ...(process.env.CLIENT_URL ?? "http://localhost:3000")
+      .split(",")
+      .map((o) => o.trim().replace(/\/+$/, ""))
+      .filter(Boolean),
+  ]),
+];
 
 app.use(
   cors({
