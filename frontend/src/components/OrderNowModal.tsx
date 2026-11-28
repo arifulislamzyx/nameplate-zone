@@ -228,7 +228,6 @@ export default function OrderNowModal({
               <dt className="font-semibold text-ink-900">Total</dt>
               <dd className="font-bold text-gold-700">{formatPrice(total)}</dd>
             </div>
-            <p className="pt-1 font-bengali text-xs text-ink-400">ক্যাশ অন ডেলিভারি — পণ্য হাতে পেয়ে টাকা দিন</p>
           </dl>
 
           <button type="submit" disabled={submitting} className="btn-gold w-full disabled:cursor-not-allowed disabled:opacity-60">

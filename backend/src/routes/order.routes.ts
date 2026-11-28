@@ -46,6 +46,28 @@ router.post("/", async (req, res, next) => {
   try {
     const data = createOrderSchema.parse(req.body);
     const subtotal = data.items.reduce((sum, i) => sum + i.price * i.quantity, 0);
+
+    // A cart kept in the browser can reference products/designs that were since
+    // deleted or re-uploaded. Drop those links (keeping the item name & price)
+    // instead of failing the whole order on a foreign-key error.
+    const wantedProductIds = [...new Set(data.items.map((i) => i.productId).filter(Boolean) as string[])];
+    const wantedDesignIds = [...new Set(data.items.map((i) => i.designId).filter(Boolean) as string[])];
+    const [foundProducts, foundDesigns] = await Promise.all([
+      wantedProductIds.length
+        ? prisma.product.findMany({ where: { id: { in: wantedProductIds } }, select: { id: true } })
+        : [],
+      wantedDesignIds.length
+        ? prisma.customDesign.findMany({ where: { id: { in: wantedDesignIds } }, select: { id: true } })
+        : [],
+    ]);
+    const validProductIds = new Set(foundProducts.map((p) => p.id));
+    const validDesignIds = new Set(foundDesigns.map((d) => d.id));
+    data.items = data.items.map((i) => ({
+      ...i,
+      productId: i.productId && validProductIds.has(i.productId) ? i.productId : null,
+      designId: i.designId && validDesignIds.has(i.designId) ? i.designId : null,
+    }));
+
     const order = await prisma.order.create({
       data: {
         orderNumber: generateOrderNumber(),
